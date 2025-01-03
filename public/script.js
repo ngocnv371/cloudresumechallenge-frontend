@@ -6,8 +6,7 @@
         }
     }
     async function updateCount() {
-        const res = await fetch({
-            url: 'https://ycwlq1bmwf.execute-api.ap-southeast-1.amazonaws.com/prod',
+        const res = await fetch('https://ycwlq1bmwf.execute-api.ap-southeast-1.amazonaws.com/prod', {
             method: 'POST',            
         })
         console.log('result', res);
