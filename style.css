@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+section {
+  border: 1px solid lightgray;
+  text-align: center;
+}
+#count {
+  font-size: 2em;
+  color: coral;
+}
