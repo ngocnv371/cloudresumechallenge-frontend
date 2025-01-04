@@ -1,16 +1,20 @@
 (function() {
-    function displayCount() {
+    function displayCount(value) {
         const countEl = document.querySelector('#count');
         if (countEl) {
-            countEl.textContent = '0';
+            countEl.textContent = value || '0';
         }
     }
     async function updateCount() {
-        const res = await fetch('https://ycwlq1bmwf.execute-api.ap-southeast-1.amazonaws.com/prod', {
-            method: 'POST',            
+        const res = await fetch('https://ycwlq1bmwf.execute-api.ap-southeast-1.amazonaws.com/prod/lambda', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }        
         })
-        console.log('result', res);
-        displayCount();
+        const data = await res.json();
+        console.log('result', data);
+        displayCount(data.visitor_count);
     }
 
     console.log('Hello from script.js');
